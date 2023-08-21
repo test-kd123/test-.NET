@@ -1,0 +1,12 @@
+﻿using System.Collections.Generic;
+
+namespace ComPDFKit.param
+{
+    public class CPDFPageSplitParameter : CPDFFileParameter
+    {
+        /**
+         * Page number collection, page number starts from 1, for example: 2-4 1,2,3 1-3,5 (this example is divided into 3 files, separated by spaces)
+         */
+        public List<string> PageOptions { get; set; }
+    }
+}
