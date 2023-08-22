@@ -6,7 +6,7 @@
 
 ## Requirements
 
-Programming Environment: .NET Framework 4.5.2 or above or .NET Core 2.0 or above.
+Programming Environment: .NET Framework 4.6.1 or above or .NET Core 6.0 or above.
 
 Dependencies: Nuget
 
