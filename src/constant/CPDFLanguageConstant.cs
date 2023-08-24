@@ -2,7 +2,7 @@
 {
     public class CPDFLanguageConstant
     {
-        public static int English = 1;
-        public static int Chinese = 2;
+        public const int English = 1;
+        public const int Chinese = 2;
     }
 }

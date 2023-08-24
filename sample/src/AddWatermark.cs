@@ -11,8 +11,8 @@ namespace Samples
 {
     public class AddWatermark
     {
-        private const string publicKey = "";
-        private const string secretKey = "";
+        private const string publicKey = "***REMOVED***";
+        private const string secretKey = "***REMOVED***";
         private static readonly CPDFClient client = new CPDFClient(publicKey, secretKey);
 
         public static void Main(string[] args)
@@ -48,25 +48,26 @@ namespace Samples
                 VerticalSpace = "10" ,
                 Front = "1"
             };
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name,filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // Perform Tasks
             client.ExecuteTask(taskId);
             // Get Task Processing Information
             CPDFTaskInfoResult taskInfo = client.GetTaskInfo(taskId);
             // Determine whether the task status is "TaskFinish"
-            if (taskInfo.TaskStatus == CPDFConstant.TASK_FINISH)
+            while (taskInfo.TaskStatus != CPDFConstant.TASK_FINISH)
             {
-                Console.WriteLine(taskInfo);
-                // Get the final file processing information
-                CPDFFileInfo fileInfo = client.GetFileInfo(fileKey);
-                Console.WriteLine(fileInfo);
-                // If the task is finished, cancel the scheduled task
+                // Delay 2000 ms
+                System.Threading.Thread.Sleep(2000);
+                // Get Task Processing Information Again
+                taskInfo = client.GetTaskInfo(taskId);
             }
-            else
-            {
-                Console.WriteLine("Task incomplete processing");
-            }
+            Console.WriteLine(taskInfo);
+            // Get the final file processing information
+            CPDFFileInfo fileInfo = client.GetFileInfo(fileKey);
+            Console.WriteLine(fileInfo + "\n");
+            Console.WriteLine(fileInfo.DownloadUrl);
+            // If the task is finished, cancel the scheduled task
         }
 
         public static void AddWatermarkImageFunc()
@@ -95,7 +96,7 @@ namespace Samples
                 Front = "1"
             };
             CPDFUploadFileResult uploadFileResult =
-                client.UploadFile(file, taskId, fileParameter, new FileInfo("sample/test.jpg"),filePassword);
+                client.UploadFile(file, new FileInfo("sample/test.jpg"), taskId, fileParameter,filePassword);
             string fileKey = uploadFileResult.FileKey;
             // Perform Tasks
             client.ExecuteTask(taskId);

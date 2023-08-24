@@ -29,7 +29,7 @@ namespace ComPDFKit
             FileInfo file = new FileInfo("sample/test.txt");
             string filePassword = "";
             CTxtToPDFParameter fileParameter = new CTxtToPDFParameter();
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, filePassword, fileParameter, file.Name);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // perform tasks
             client.ExecuteTask(taskId);

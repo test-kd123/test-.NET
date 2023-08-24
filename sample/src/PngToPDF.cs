@@ -29,7 +29,7 @@ namespace ComPDFKit
             FileInfo file = new FileInfo("sample/test.png");
             string filePassword = "";
             CPngToPDFParameter fileParameter = new CPngToPDFParameter();
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name, filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // perform tasks
             client.ExecuteTask(taskId);

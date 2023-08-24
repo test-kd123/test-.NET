@@ -32,12 +32,12 @@ namespace Samples
             string filePassword = "";
             CPDFPageMergeParameter fileParameter = new CPDFPageMergeParameter();
             fileParameter.PageOptions = new List<string> { "1", "2" };
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name, filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             // upload File
             FileInfo fileSecond = new FileInfo("sample/test.pdf");
             CPDFPageMergeParameter fileParameterSecond = new CPDFPageMergeParameter();
             fileParameterSecond.PageOptions = new List<string> { "1", "2" };
-            client.UploadFile(fileSecond, taskId, fileParameterSecond, fileSecond.Name, filePassword);
+            client.UploadFile(fileSecond, taskId, fileParameterSecond, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // perform tasks
             client.ExecuteTask(taskId);

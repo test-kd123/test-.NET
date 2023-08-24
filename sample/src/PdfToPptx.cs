@@ -30,7 +30,7 @@ namespace ComPDFKit
             string filePassword = "";
             CPDFToPPTParameter fileParameter = new CPDFToPPTParameter();
             fileParameter.IsContainImg = CPDFToPPTParameter.IS_CONTAIN_IMG;
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name, filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // perform tasks
             client.ExecuteTask(taskId);

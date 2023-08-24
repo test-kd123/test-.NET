@@ -166,21 +166,23 @@ namespace ComPDFKit.client
         {
             return _httpClient.GetUploadFileResult(file, taskId, password, parameter, language);
         }
-
+        
         /// <summary>
         /// Uploads a file.
         /// </summary>
-        /// <param name="file">The file content as byte array.</param>
+        /// <param name="file">The FileInfo object.</param>
         /// <param name="taskId">The task ID.</param>
-        /// <param name="fileName">The file name.</param>
+        /// <param name="fileParameter">The file parameter.</param>
+        /// <param name="imageFile">The FileInfo object of the image file to attach.</param>
         /// <param name="password">The password</param>
         /// <param name="language">1:English, 2:Chinese</param>
-        /// <returns>CPDFUploadFileResult.</returns>
-        public CPDFUploadFileResult UploadFile(byte[] file, string taskId, string fileName, string password = "", int language = 0)
+        /// <returns>CPDFUploadFileResult</returns>
+        public CPDFUploadFileResult UploadFile(FileInfo file, FileInfo imageFile, string taskId, CPDFFileParameter fileParameter,  string password = "", int language = 0)
         {
-            using (MemoryStream stream = new MemoryStream(file))
+            using (FileStream fileStream = file.OpenRead())
+            using (FileStream imageFileStream = imageFile.OpenRead())
             {
-                return _httpClient.GetUploadFileResult(new FileInfo(fileName), taskId, password, null, language);
+                return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, file.Name, imageFileStream, imageFile.Name, language);
             }
         }
 
@@ -199,6 +201,21 @@ namespace ComPDFKit.client
                 return _httpClient.GetUploadFileResult(fileStream, taskId, password, null, Path.GetFileName(filePath), null, null, language);
             }
         }
+        
+        /// <summary>
+        /// Uploads a file.
+        /// </summary>
+        /// <param name="filePath">The path of the file to upload.</param>
+        /// <param name="taskId">The task ID.</param>
+        /// <param name="fileParameter">The file parameter.</param>
+        /// <param name="password">The password</param>
+        /// <param name="language">1:English, 2:Chinese</param>
+        /// <returns>CPDFUploadFileResult.</returns>
+        public CPDFUploadFileResult UploadFile(string filePath, string taskId, CPDFFileParameter fileParameter, string password = "", int language = 0)
+        {
+            using var fileStream = new FileStream(filePath, FileMode.Open);
+            return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, Path.GetFileName(filePath), null, null, language);
+        }
 
         /// <summary>
         /// Uploads a file.
@@ -210,53 +227,11 @@ namespace ComPDFKit.client
         /// <param name="password">The password</param>
         /// <param name="language">1:English, 2:Chinese</param>
         /// <returns>CPDFUploadFileResult.</returns>
-        public CPDFUploadFileResult UploadFile(string filePath, string taskId, CPDFFileParameter fileParameter, string imageFilePath, string password = "", int language = 0)
+        public CPDFUploadFileResult UploadFile(string filePath, string imageFilePath, string taskId, CPDFFileParameter fileParameter, string password = "", int language = 0)
         {
             using var fileStream = new FileStream(filePath, FileMode.Open);
             using var imageStream = new FileStream(imageFilePath, FileMode.Open);
             return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, Path.GetFileName(filePath), imageStream, Path.GetFileName(imageFilePath), language);
-        }
-
-        /// <summary>
-        /// Uploads a file.
-        /// </summary>
-        /// <param name="file">The FileInfo object.</param>
-        /// <param name="taskId">The task ID.</param>
-        /// <param name="fileParameter">The file parameter.</param>
-        /// <param name="imageFile">The FileInfo object of the image file to attach.</param>
-        /// <param name="password">The password</param>
-        /// <param name="language">1:English, 2:Chinese</param>
-        /// <returns>CPDFUploadFileResult</returns>
-        public CPDFUploadFileResult UploadFile(FileInfo file, string taskId, CPDFAddWatermarkParameter fileParameter, FileInfo imageFile, string password = "", int language = 0)
-        {
-            using (FileStream fileStream = file.OpenRead())
-            using (FileStream imageFileStream = imageFile.OpenRead())
-            {
-                return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, file.Name, imageFileStream, imageFile.Name, language);
-            }
-        }
-
-        /// <summary>
-        /// Uploads a file.
-        /// </summary>
-        /// <param name="file">The FileInfo object.</param>
-        /// <param name="taskId">The task ID.</param>
-        /// <param name="fileParameter">The file parameter.</param>
-        /// <param name="fileName">The file name.</param>
-        /// <param name="password">The password</param>
-        /// <param name="language">1:English, 2:Chinese</param>
-        /// <returns>CPDFUploadFileResult</returns>
-        public CPDFUploadFileResult UploadFile(FileInfo file, string taskId, CPDFFileParameter fileParameter,
-            string fileName, string password = "", int language = 0)
-        {
-            using (var stream = new FileStream(file.FullName, FileMode.Open))
-            {
-                if (string.IsNullOrEmpty(fileName))
-                {
-                    fileName = file.Name;
-                }
-                return _httpClient.GetUploadFileResult(stream, taskId, password, fileParameter, fileName, null, null, language);
-            }
         }
 
         /// <summary>

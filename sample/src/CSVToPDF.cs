@@ -29,7 +29,7 @@ namespace Samples
             FileInfo file = new FileInfo("sample/test.csv");
             string filePassword = "";
             CCSVToPDFParameter fileParameter = new CCSVToPDFParameter();
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name,filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // Perform tasks
             client.ExecuteTask(taskId);

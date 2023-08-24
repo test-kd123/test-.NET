@@ -30,7 +30,7 @@ namespace Samples
             FileInfo file = new FileInfo("sample/test.html");
             string filePassword = "";
             CHtmlToPDFParameter fileParameter = new CHtmlToPDFParameter();
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name, filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // perform tasks
             client.ExecuteTask(taskId);

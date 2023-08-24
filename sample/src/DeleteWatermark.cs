@@ -29,7 +29,7 @@ namespace Samples
             FileInfo file = new FileInfo("sample/test.pdf");
             string filePassword = "";
             CPDFDeleteWatermarkParameter fileParameter = new CPDFDeleteWatermarkParameter();
-            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, file.Name,filePassword);
+            CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
             string fileKey = uploadFileResult.FileKey;
             // Perform tasks
             client.ExecuteTask(taskId);
