@@ -154,6 +154,20 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
+        /// upload file
+        /// </summary>
+        /// <param name="file">The FileInfo object.</param>
+        /// <param name="taskId">The task ID.</param>
+        /// <param name="parameter">The parameter</param>
+        /// <param name="password">The password</param>
+        /// <param name="language">1:English, 2:Chinese</param>
+        /// <returns></returns>
+        public CPDFUploadFileResult UploadFile(FileInfo file, string taskId,CPDFFileParameter parameter, string password = "", int language = 0)
+        {
+            return _httpClient.GetUploadFileResult(file, taskId, password, parameter, language);
+        }
+
+        /// <summary>
         /// Uploads a file.
         /// </summary>
         /// <param name="file">The file content as byte array.</param>
@@ -237,6 +251,10 @@ namespace ComPDFKit.client
         {
             using (var stream = new FileStream(file.FullName, FileMode.Open))
             {
+                if (string.IsNullOrEmpty(fileName))
+                {
+                    fileName = file.Name;
+                }
                 return _httpClient.GetUploadFileResult(stream, taskId, password, fileParameter, fileName, null, null, language);
             }
         }
