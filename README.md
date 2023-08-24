@@ -1,24 +1,24 @@
-## ComPDFKit API in CSharp
+## ComPDFKit API in C#.NET
 
-[ComPDFKit](https://api.compdf.com/api/docs/introduction) API provides a variety of CSharp API tools that allow you to create an efficient document processing workflow in a single API call. Try our various APIs for free — no credit card required.
+[ComPDFKit](https://api.compdf.com/api/docs/introduction) API provides a variety of C# API tools that allow you to create an efficient document processing workflow in a single API call. Try our various APIs for free — no credit card required.
 
 
 
 ## Requirements
 
-Programming Environment: .NET Framework 4.6.1 or above or .NET Core 6.0 or above.
+Programming Environment: .NET Framework 4.6.1 or higher. Or .NET Core 6.0 or higher.
 
-Dependencies: Nuget
+Dependencies: Nuget.
 
 
 
 ## Installation
 
-You can install the library via NuGet Package Manager, or run the following command in the Package Manager Console:
+You can install the ComPDFKit API in C# via NuGet Package Manager, or run the following command in the Package Manager Console:
 ``` shell script
 Install-Package ComPDFKit.Api
 ```
-Alternatively, you can add "ComPDFKit.Api": "1.3.2" to your .csproj file and then run.
+Alternatively, you can add the package ***"ComPDFKit.Api"***, choose the package version you want to your ***".csproj"*** file, and then run.
 
 
 
@@ -26,9 +26,9 @@ Alternatively, you can add "ComPDFKit.Api": "1.3.2" to your .csproj file and the
 
 You can use your **publicKey** and **secretKey** to complete the authentication. You need to [sign in](https://api.compdf.com/login) your ComPDFKit API account to get your **publicKey** and **secretKey** at the [dashboard](https://api-dashboard.compdf.com/api/keys). If you are new to ComPDFKit, click here to [sign up](https://api.compdf.com/signup) for a free trial.
 
-- Project public Key : You can find the public key in [Management Panel](https://api-dashboard.compdf.com/api/keys).
+- Project public Key: You can find the public key in the **API Keys** section of your ComPDFKit API account.
 
-- Project secret Key : You can find the secret Key in [Management Panel](https://api-dashboard.compdf.com/api/keys).
+- Project secret Key: You can find the secret Key in the **API Keys** section of your ComPDFKit API account.
 
 ```csharp
 CPDFClient client = new CPDFClient(<publicKey>, <secretKey>);
@@ -45,7 +45,7 @@ A task ID is automatically generated for you based on the type of PDF tool you c
 CPDFClient client = new CPDFClient(<publicKey>, <secretKey>);
 
 // Create a task
-// Create an example of a PDF TO WORD task
+// Create an example task to convert a PDF tO a Word
 CPDFCreateTaskResult result = client.CreateTask(CPDFConversionEnum.PDF_TO_WORD);
 
 // Get a task id
@@ -56,14 +56,14 @@ string taskId = result.TaskId;
 
 ## Upload Files
 
-Upload the original file and bind the file to the task ID. The field parameter is used to pass the JSON string to set the processing parameters for the file. Each file will generate automatically a unique filekey. Please note that a maximum of five files can be uploaded for a task ID and no files can be uploaded for that task after it has started.
+Upload the original file and bind the file to the task ID. The field parameter is used to pass the JSON string to set the processing parameters for the file. Each file will generate automatically a unique **filekey**. Please note that a maximum of five files can be uploaded for a task ID and no files can be uploaded for that task after it has started.
 
 ```csharp
 // Create a client
 CPDFClient client = new CPDFClient(<publicKey>, <secretKey>);
 
 // Create a task
-// Create an example of a PDF TO WORD task
+// Create an example task to convert a PDF tO a Word
 CPDFCreateTaskResult result = client.CreateTask(CPDFConversionEnum.PDF_TO_WORD);
 
 // Get a task id
@@ -75,7 +75,7 @@ client.UploadFile(<convertFile>, taskId);
 
 
 
-## Execute the task
+## Execute the Task
 
 After the file upload is completed, call this interface with the task ID to process the files.
 
@@ -84,7 +84,7 @@ After the file upload is completed, call this interface with the task ID to proc
 CPDFClient client = new CPDFClient(<publicKey>, <secretKey>);
 
 // Create a task
-// Create an example of a PDF TO WORD task
+// Create an example task to convert a PDF tO a Word
 CPDFCreateTaskResult result = client.CreateTask(CPDFConversionEnum.PDF_TO_WORD);
 
 // Get a task id
@@ -93,7 +93,7 @@ string taskId = result.TaskId;
 // Upload files
 client.UploadFile(<convertFile>, taskId);
 
-// execute Task
+// Execute the task
 client.ExecuteTask(taskId, CPDFLanguageConstant.English);
 ```
 
@@ -108,7 +108,7 @@ Request task status and file-related meta data based on the task ID.
 CPDFClient client = new CPDFClient(<publicKey>, <secretKey>);
 
 // Create a task
-// Create an example of a PDF TO WORD task
+// Create an example task to convert a PDF tO a Word
 CPDFCreateTaskResult result = client.CreateTask(CPDFConversionEnum.PDF_TO_WORD);
 
 // Get a task id
@@ -134,4 +134,4 @@ See ***"Samples"*** folder in this folder.
 
 ## Resources
 
-* [ComPDFKit API Documentation](https://api.compdf.com/api/docs/introduction)
+* [Guides of ComPDFKit API Libraries](https://api.compdf.com/api-libraries/overview)
