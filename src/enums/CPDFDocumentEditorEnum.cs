@@ -19,19 +19,30 @@ namespace ComPDFKit.enums
     {
         public static string GetValue(CPDFDocumentEditorEnum value)
         {
-            return value switch
+            switch (value)
             {
-                CPDFDocumentEditorEnum.SPLIT => "pdf/split",
-                CPDFDocumentEditorEnum.MERGE => "pdf/merge",
-                CPDFDocumentEditorEnum.COMPRESS => "pdf/compress",
-                CPDFDocumentEditorEnum.DELETE => "pdf/delete",
-                CPDFDocumentEditorEnum.EXTRACT => "pdf/extract",
-                CPDFDocumentEditorEnum.ROTATION => "pdf/rotation",
-                CPDFDocumentEditorEnum.INSERT => "pdf/insert",
-                CPDFDocumentEditorEnum.ADD_WATERMARK => "pdf/addWatermark",
-                CPDFDocumentEditorEnum.DEL_WATERMARK => "pdf/delWatermark",
-                _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Invalid CPDFDocumentEditorEnum value")
-            };
+                case CPDFDocumentEditorEnum.SPLIT:
+                    return "pdf/split";
+                case CPDFDocumentEditorEnum.MERGE:
+                    return "pdf/merge";
+                case CPDFDocumentEditorEnum.COMPRESS:
+                    return "pdf/compress";
+                case CPDFDocumentEditorEnum.DELETE:
+                    return "pdf/delete";
+                case CPDFDocumentEditorEnum.EXTRACT:
+                    return "pdf/extract";
+                case CPDFDocumentEditorEnum.ROTATION:
+                    return "pdf/rotation";
+                case CPDFDocumentEditorEnum.INSERT:
+                    return "pdf/insert";
+                case CPDFDocumentEditorEnum.ADD_WATERMARK:
+                    return "pdf/addWatermark";
+                case CPDFDocumentEditorEnum.DEL_WATERMARK:
+                    return "pdf/delWatermark";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, "Invalid CPDFDocumentEditorEnum value");
+            }
         }
+
     }
 }

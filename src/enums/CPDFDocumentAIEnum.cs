@@ -16,16 +16,24 @@ namespace ComPDFKit.enums
     {
         public static string GetValue(CPDFDocumentAIEnum value)
         {
-            return value switch
+            switch (value)
             {
-                CPDFDocumentAIEnum.OCR => "documentAI/ocr",
-                CPDFDocumentAIEnum.MAGICCOLOR => "documentAI/magicColor",
-                CPDFDocumentAIEnum.TABLEREC => "documentAI/tableRec",
-                CPDFDocumentAIEnum.LAYOUTANALYSIS => "documentAI/layoutAnalysis",
-                CPDFDocumentAIEnum.DEWARP => "documentAI/dewarp",
-                CPDFDocumentAIEnum.DETECTIONSTAMP => "documentAI/detectionStamp",
-                _ => throw new ArgumentOutOfRangeException(nameof(value), value, "Invalid CPDFDocumentAIEnum value")
-            };
+                case CPDFDocumentAIEnum.OCR:
+                    return "documentAI/ocr";
+                case CPDFDocumentAIEnum.MAGICCOLOR:
+                    return "documentAI/magicColor";
+                case CPDFDocumentAIEnum.TABLEREC:
+                    return "documentAI/tableRec";
+                case CPDFDocumentAIEnum.LAYOUTANALYSIS:
+                    return "documentAI/layoutAnalysis";
+                case CPDFDocumentAIEnum.DEWARP:
+                    return "documentAI/dewarp";
+                case CPDFDocumentAIEnum.DETECTIONSTAMP:
+                    return "documentAI/detectionStamp";
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(value), value, "Invalid CPDFDocumentAIEnum value");
+            }
         }
+
     }
 }

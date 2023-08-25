@@ -28,7 +28,7 @@ namespace ComPDFKit.pojo
             Result = result;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             if (this == obj) return true;
             if (obj == null || GetType() != obj.GetType()) return false;

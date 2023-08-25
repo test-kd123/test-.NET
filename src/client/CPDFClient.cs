@@ -213,7 +213,7 @@ namespace ComPDFKit.client
         /// <returns>CPDFUploadFileResult.</returns>
         public CPDFUploadFileResult UploadFile(string filePath, string taskId, CPDFFileParameter fileParameter, string password = "", int language = 0)
         {
-            using var fileStream = new FileStream(filePath, FileMode.Open);
+            var fileStream = new FileStream(filePath, FileMode.Open);
             return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, Path.GetFileName(filePath), null, null, language);
         }
 
@@ -229,8 +229,8 @@ namespace ComPDFKit.client
         /// <returns>CPDFUploadFileResult.</returns>
         public CPDFUploadFileResult UploadFile(string filePath, string imageFilePath, string taskId, CPDFFileParameter fileParameter, string password = "", int language = 0)
         {
-            using var fileStream = new FileStream(filePath, FileMode.Open);
-            using var imageStream = new FileStream(imageFilePath, FileMode.Open);
+             var fileStream = new FileStream(filePath, FileMode.Open);
+             var imageStream = new FileStream(imageFilePath, FileMode.Open);
             return _httpClient.GetUploadFileResult(fileStream, taskId, password, fileParameter, Path.GetFileName(filePath), imageStream, Path.GetFileName(imageFilePath), language);
         }
 

@@ -267,7 +267,7 @@ namespace ComPDFKit.client
                 response.EnsureSuccessStatusCode();
 
                 string responseBody = await response.Content.ReadAsStringAsync();
-                CPDFResult<CPDFCreateTaskResult>? result = JsonConvert.DeserializeObject<CPDFResult<CPDFCreateTaskResult>>(responseBody);
+                CPDFResult<CPDFCreateTaskResult> result = JsonConvert.DeserializeObject<CPDFResult<CPDFCreateTaskResult>>(responseBody);
 
                 if (result == null || result.Code != CPDFConstant.SUCCESS_CODE)
                 {
@@ -292,7 +292,7 @@ namespace ComPDFKit.client
         /// <param name="language">1: English, 2: Chinese</param>
         /// <returns>The upload file result</returns>
         /// <exception cref="CPDFException"></exception>
-        public CPDFUploadFileResult GetUploadFileResult(FileInfo file, string taskId, string password, CPDFFileParameter? fileParameter, int language)
+        public CPDFUploadFileResult GetUploadFileResult(FileInfo file, string taskId, string password, CPDFFileParameter fileParameter, int language)
         {
             try
             {
@@ -320,7 +320,7 @@ namespace ComPDFKit.client
         /// <param name="language">1: English, 2: Chinese</param>
         /// <returns>The upload file result</returns>
         /// <exception cref="CPDFException"></exception>
-        public CPDFUploadFileResult GetUploadFileResult(FileStream fileInputStream, string taskId, string password, CPDFFileParameter? fileParameter, string fileName, FileStream imageInputStream, string imageFileName, int language)
+        public CPDFUploadFileResult GetUploadFileResult(FileStream fileInputStream, string taskId, string password, CPDFFileParameter fileParameter, string fileName, FileStream imageInputStream, string imageFileName, int language)
         {
             string url = _address + CPDFConstant.API_V1_UPLOAD_FILE;
             MultipartFormDataContent content = new MultipartFormDataContent();
