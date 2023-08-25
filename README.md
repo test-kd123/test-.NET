@@ -16,9 +16,9 @@ Dependencies: Nuget.
 
 You can install the ComPDFKit API in C# via NuGet Package Manager, or run the following command in the Package Manager Console:
 ``` shell script
-Install-Package ComPDFKit.Api
+Install-Package compdfkit-api-csharp
 ```
-Alternatively, you can add the package ***"ComPDFKit.Api"***, choose the package version you want to your ***".csproj"*** file, and then run.
+Alternatively, you can add the package ***"compdfkit-api-csharp"***, choose the package version you want to your ***".csproj"*** file, and then run.
 
 
 
