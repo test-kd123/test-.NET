@@ -1,5 +1,8 @@
 ﻿namespace ComPDFKit.param
 {
+    /// <summary>
+    /// PDF to HTML parameter
+    /// </summary>
     public class CPDFToHtmlParameter : CPDFFileParameter
     {
         public static readonly string IS_CONTAIN_ANNOT = "1";
@@ -12,49 +15,19 @@
         public static readonly string MultiplePages = "3";
         public static readonly string MultiplePagesSplitByBookmarks = "4";
 
-        /**
-         * pageOptions 1: SinglePage, 2: SinglePageNavigationByBookmarks, 3: MultiplePages, 4: MultiplePagesSplitByBookmarks
-         */
-        private string pageOptions;
+        /// <summary>
+        /// pageOptions 1: SinglePage, 2: SinglePageNavigationByBookmarks, 3: MultiplePages, 4: MultiplePagesSplitByBookmarks
+        /// </summary>
+        public string PageOptions { get; set; }
 
-        /**
-         * Typesetting method (1: flow layout, 0: box layout) Default box layout
-         */
-        private string isContainAnnot;
+        /// <summary>
+        /// Typesetting method (1: flow layout, 0: box layout) Default box layout
+        /// </summary>
+        public string IsContainAnnot { get; set; }
 
-        /**
-         * Whether to include pictures (1: yes, 0: no)
-         */
-        private string isContainImg;
-
-        public string GetIsContainAnnot()
-        {
-            return isContainAnnot;
-        }
-
-        public void SetIsContainAnnot(string isContainAnnot)
-        {
-            this.isContainAnnot = isContainAnnot;
-        }
-
-        public string GetIsContainImg()
-        {
-            return isContainImg;
-        }
-
-        public void SetIsContainImg(string isContainImg)
-        {
-            this.isContainImg = isContainImg;
-        }
-
-        public string GetPageOptions()
-        {
-            return pageOptions;
-        }
-
-        public void SetPageOptions(string pageOptions)
-        {
-            this.pageOptions = pageOptions;
-        }
+        /// <summary>
+        /// Whether to include pictures (1: yes, 0: no) Default no
+        /// </summary>
+        public string IsContainImg { get; set; }
     }
 }

@@ -1,20 +1,13 @@
 ﻿namespace ComPDFKit.param
 {
+    /// <summary>
+    /// PDF to PPT parameter
+    /// </summary>
     public class CPDFToPngParameter : CPDFFileParameter
     {
-        /**
-         * Value range 72-1500 (default 300)
-         */
-        private string imgDpi;
-
-        public string GetImgDpi()
-        {
-            return imgDpi;
-        }
-
-        public void SetImgDpi(string imgDpi)
-        {
-            this.imgDpi = imgDpi;
-        }
+        /// <summary>
+        /// Value range 72-1500 (default 300)
+        /// </summary>
+        public string ImgDpi { get; set; }
     }
 }

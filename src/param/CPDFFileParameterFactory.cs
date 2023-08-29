@@ -3,6 +3,9 @@ using ComPDFKit.enums;
 
 namespace ComPDFKit.param
 {
+    /// <summary>
+    /// Factory class to create CPDFFileParameter object.
+    /// </summary>
     public static class CPDFFileParameterFactory
     {
         public static T GetFileParameterByType<T>(CPDFConversionEnum type) where T : CPDFFileParameter, new()
@@ -22,6 +25,13 @@ namespace ComPDFKit.param
             return CPDFFileParameter;
         }
 
+        /// <summary>
+        /// Get CPDFFileParameter object by type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static T GetFileParameterByType<T>(CPDFDocumentEditorEnum type) where T : CPDFFileParameter, new()
         {
             T CPDFFileParameter;

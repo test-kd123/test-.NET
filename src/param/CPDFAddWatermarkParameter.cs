@@ -1,5 +1,8 @@
 ﻿namespace ComPDFKit.param
 {
+    /// <summary>
+    /// Form recognition parameter
+    /// </summary>
     public class CPDFAddWatermarkParameter : CPDFFileParameter
     {
         public const string TYPE_TEXT = "text";
@@ -12,11 +15,6 @@
         public const string HORIZALIGN_LEFT = "left";
         public const string HORIZALIGN_CENTER = "center";
         public const string HORIZALIGN_RIGHT = "right";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Language { get; set; }
         
         /// <summary>
         /// Watermark type (text: text type watermark, image: image type watermark)

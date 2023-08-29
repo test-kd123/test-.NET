@@ -1,5 +1,8 @@
 ﻿namespace ComPDFKit.param
 {
+ /// <summary>
+ /// PDF to Excel parameter
+ /// </summary>
     public class CPDFToExcelParameter : CPDFFileParameter
     {
         public static readonly string IS_CONTAIN_ANNOT = "1";
@@ -7,24 +10,24 @@
         public static readonly string IS_CONTAIN_IMG = "1";
         public static readonly string NOT_IS_CONTAIN_IMG = "0";
 
-        /**
-         * extractContentOptions (1: OnlyText, 2: OnlyTable, 3: AllContent)
-         */
+        /// <summary>
+        /// extractContentOptions (1: OnlyText, 2: OnlyTable, 3: AllContent)
+        /// </summary>
         public string ContentOptions { get; set; }
 
-        /**
-         * createWorksheetOptions (1: ForEachTable, 2: ForEachPage, 3: ForTheDocument)
-         */
+        /// <summary>
+        /// createWorksheetOptions (1: ForEachTable, 2: ForEachPage, 3: ForTheDocument)
+        /// </summary>
         public string WorksheetOptions { get; set; }
 
-        /**
-         * Typesetting method (1: flow layout, 0: box layout) Default box layout
-         */
+        /// <summary>
+        /// Typesetting method (1: flow layout, 0: box layout) Default box layout
+        /// </summary>
         public string IsContainAnnot { get; set; }
 
-        /**
-         * Whether to include pictures (1: yes, 0: no)
-         */
+        /// <summary>
+        /// Whether to include pictures (1: yes, 0: no) Default no
+        /// </summary>
         public string IsContainImg { get; set; }
     }
 }

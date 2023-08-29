@@ -1,5 +1,8 @@
 ﻿namespace ComPDFKit.param
 {
+    /// <summary>
+    /// Form recognition parameter
+    /// </summary>
     public class CPDFFormRecognizerParameter : CPDFFileParameter
     {
         public const string LANG_AUTO = "auto";
@@ -22,12 +25,6 @@
         /// latin - Latin.
         /// devanagari - Sanskrit alphabet.
         /// </summary>
-        private string lang;
-
-        public string Lang
-        {
-            get { return lang; }
-            set { lang = value; }
-        }
+        public string Lang { get; set; }
     }
 }

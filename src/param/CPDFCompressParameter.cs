@@ -1,5 +1,8 @@
 ﻿namespace ComPDFKit.param
 {
+    /// <summary>
+    /// Compress PDF file
+    /// </summary>
     public class CPDFCompressParameter : CPDFFileParameter
     {
         /// <summary>
