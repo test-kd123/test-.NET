@@ -14,6 +14,9 @@ using Newtonsoft.Json;
 
 namespace ComPDFKit.client
 {
+    /// <summary>
+    /// For http request to ComPDFKit server
+    /// </summary>
     public class CPDFHttpClient
     {
         private readonly HttpClient _httpClient;

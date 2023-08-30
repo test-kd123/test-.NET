@@ -59,7 +59,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// get support tools
+        /// Get support tools
         /// </summary>
         /// <returns>CPDFTool</returns>
         public List<CPDFTool> GetTools()
@@ -68,7 +68,7 @@ namespace ComPDFKit.client
         }
         
         /// <summary>
-        /// 
+        /// Get file info
         /// </summary>
         /// <param name="fileKey">fileKey</param>
         /// <param name="language">1:English, 2:Chinese</param>
@@ -79,7 +79,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// get asset info
+        /// Get asset info
         /// </summary>
         /// <returns>CPDFTenantAssetResult</returns>
         public CPDFTenanAssetResult GetAssetInfo()
@@ -88,7 +88,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// get task list
+        /// Get task list
         /// </summary>
         /// <param name="page">page</param>
         /// <param name="size">size</param>
@@ -99,7 +99,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// create task
+        /// Create task
         /// </summary>
         /// <param name="executeTypeUrl"> task execution type</param>
         /// <param name="language">1:English, 2:Chinese</param>
@@ -110,7 +110,7 @@ namespace ComPDFKit.client
         }
         
         /// <summary>
-        /// create task
+        /// Create task
         /// </summary>
         /// <param name="conversionEnum">task execution type</param>
         /// <param name="language">1:English, 2:Chinese</param>
@@ -121,7 +121,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// create task
+        /// Create task
         /// </summary>
         /// <param name="documentEditorEnum">task execution type</param>
         /// <param name="language">1:English, 2:Chinese</param>
@@ -131,7 +131,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// create task
+        /// Create task
         /// </summary>
         /// <param name="documentAIEnum">task execution type</param>
         /// <param name="language">1:English, 2:Chinese</param>
@@ -141,7 +141,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// upload file
+        /// Uploads a file.
         /// </summary>
         /// <param name="file">The FileInfo object.</param>
         /// <param name="taskId">The task ID.</param>
@@ -154,7 +154,7 @@ namespace ComPDFKit.client
         }
 
         /// <summary>
-        /// upload file
+        /// Uploads a file.
         /// </summary>
         /// <param name="file">The FileInfo object.</param>
         /// <param name="taskId">The task ID.</param>
