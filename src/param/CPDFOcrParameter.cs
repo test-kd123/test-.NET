@@ -25,6 +25,6 @@
         /// latin - Latin.
         /// devanagari - Sanskrit alphabet.
         /// </summary>
-        public string lang { get; set; }
+        public string Lang { get; set; }
     }
 }

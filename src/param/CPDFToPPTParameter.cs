@@ -11,7 +11,7 @@
         public static readonly string NOT_IS_CONTAIN_IMG = "0";
 
         /// <summary>
-        /// Typesetting method (1: flow layout, 0: box layout) Default box layout
+        /// Whether to include annotations (1: yes, 0: no) Default no
         /// </summary>
         public string IsContainAnnot {get;set;}
 

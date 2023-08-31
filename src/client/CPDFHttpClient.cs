@@ -11,6 +11,7 @@ using ComPDFKit.param;
 using ComPDFKit.pojo.comPdfKit;
 using ComPDFKit.utils;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace ComPDFKit.client
 {
@@ -340,7 +341,12 @@ namespace ComPDFKit.client
             }
             if (fileParameter != null)
             {
-                content.Add(new StringContent(JsonConvert.SerializeObject(fileParameter)), "parameter");
+                var settings = new JsonSerializerSettings
+                {
+                    ContractResolver = new CamelCasePropertyNamesContractResolver()
+                };
+                string serializedData = JsonConvert.SerializeObject(fileParameter, settings);
+                content.Add(new StringContent(serializedData), "parameter");
             }
             if (imageInputStream != null && !string.IsNullOrEmpty(imageFileName))
             {

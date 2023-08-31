@@ -13,7 +13,7 @@
         public static readonly string NOT_IS_FLOW_LAYOUT = "0";
 
         /// <summary>
-        /// Typesetting method (1: flow layout, 0: box layout) Default box layout
+        /// Whether to include annotations (1: yes, 0: no)
         /// </summary>
         public string IsContainAnnot {get; set;}
 
