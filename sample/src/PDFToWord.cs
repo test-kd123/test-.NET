@@ -17,10 +17,10 @@ namespace ComPDFKit
 
         public static void Main(string[] args)
         {
-            PdfToWord();
+            PDFToWordFunc();
         }
 
-        public static void PdfToWord()
+        public static void PDFToWordFunc()
         {
             try
             {

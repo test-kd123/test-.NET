@@ -17,10 +17,10 @@ namespace ComPDFKit
 
         public static void Main(string[] args)
         {
-            PdfToRtf();
+            PDFToRtfFunc();
         }
 
-        public static void PdfToRtf()
+        public static void PDFToRtfFunc()
         {
             try
             {

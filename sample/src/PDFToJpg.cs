@@ -17,10 +17,10 @@ namespace ComPDFKit
 
         public static void Main(string[] args)
         {
-            PdfToJpg();
+            PDFToJpgFunc();
         }
 
-        public static void PdfToJpg()
+        public static void PDFToJpgFunc()
         {
             try
             {

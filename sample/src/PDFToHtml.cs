@@ -18,10 +18,10 @@ namespace ComPDFKit
 
         static void Main(string[] args)
         {
-            PDFToHtml.PdfToHtml();
+            PDFToHtmlFunc();
         }
 
-        static void PdfToHtml()
+        static void PDFToHtmlFunc()
         {
             try
             {
