@@ -35,7 +35,7 @@ namespace Samples
                 FileInfo file = new FileInfo("sample/test.jpg");
                 string filePassword = "";
                 CPDFOcrParameter fileParameter = new CPDFOcrParameter();
-                fileParameter.Lang = "auto";
+                fileParameter.lang = "auto";
                 CPDFUploadFileResult uploadFileResult = client.UploadFile(file, taskId, fileParameter, filePassword);
                 string fileKey = uploadFileResult.FileKey;
                 // perform tasks
